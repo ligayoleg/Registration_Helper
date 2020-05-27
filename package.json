@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ligayoleg/Registration_Helper#readme",
   "dependencies": {
-    "@angular/cli": "^9.1.7"
+    "@angular/cli": "^9.1.7",
+    "angular-in-memory-web-api": "^0.11.0"
   }
 }
