@@ -1,0 +1,68 @@
+<div id="classesView">
+    <div class="component" id="classes">
+        <p-panel header="Classes">
+            <p-header>
+                <div class="buttons">
+                        <button pButton type="button" label="Save"></button>
+                        <button pButton type="button" (click)="addedClasses = true" icon="pi pi-shopping-cart"></button>
+                </div>
+                
+            </p-header>
+            <div class="class">
+                    <span class="ui-float-label">
+                            <input id="float-input" type="text" size="5" pInputText> 
+                            <label for="float-input">Code</label>
+                    </span>
+                    <span class="ui-float-label">
+                            <input id="float-input" type="text" size="10" pInputText> 
+                            <label for="float-input">Number</label>
+                    </span>
+                    <span class="ui-float-label">
+                            <input id="float-input" type="text" size="30" pInputText> 
+                            <label for="float-input">Name</label>
+                    </span>
+                    <span>
+                        <label> Once a week:</label>
+                        <p-inputSwitch></p-inputSwitch>
+                    </span>
+                    <div id="day1">
+                        <span class="ui-float-label">
+                            <p-dropdown [options]="days"></p-dropdown> 
+                            <label for="float-input">Day 1</label>
+                        </span>
+                        <span class="ui-float-label">
+                                <p-calendar  [timeOnly]="true"></p-calendar>
+                                <label for="float-input">Start</label>
+                        </span>
+                        <span class="ui-float-label">
+                                <p-calendar  [timeOnly]="true"></p-calendar>
+                                <label for="float-input">Finish</label>
+                        </span>
+                    </div>
+                    <div id="day1">
+                        <span class="ui-float-label">
+                            <p-dropdown [options]="days"></p-dropdown> 
+                            <label for="float-input">Day 2</label>
+                        </span>
+                        <span class="ui-float-label">
+                                <p-calendar  [timeOnly]="true"></p-calendar>
+                                <label for="float-input">Start</label>
+                        </span>
+                        <span class="ui-float-label">
+                                <p-calendar  [timeOnly]="true"></p-calendar>
+                                <label for="float-input">Finish</label>
+                        </span>
+                    </div>
+                    
+                <div class="buttons">
+                    <button pButton type="button" icon="pi pi-check-circle" label="Add" class="ui-button-raised ui-button-rounded ui-button-success"></button>
+                    <button pButton type="button" icon="pi pi-times-circle" label="Reset" class="ui-button-raised ui-button-rounded ui-button-danger"></button>
+                </div>
+            </div>
+            
+        </p-panel>
+    </div>
+    <p-sidebar [(visible)]="addedClasses" position="right" [baseZIndex]="10000">
+            Content!
+    </p-sidebar>
+</div>

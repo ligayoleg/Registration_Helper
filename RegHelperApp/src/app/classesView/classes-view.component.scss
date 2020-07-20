@@ -1,0 +1,30 @@
+#classesView{
+
+
+    #classes{
+
+
+        .buttons{
+            float: right;
+            
+            button{
+                margin: 5px;
+            }
+        }
+        .class{
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+            margin-top: 15px;
+
+            .buttons{
+                
+                button{
+                    margin: 5px;
+                }
+            }
+        }
+
+    }
+
+}

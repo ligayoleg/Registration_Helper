@@ -1,0 +1,16 @@
+#nav{
+    background: #003366;
+    ul{
+        list-style: none;
+        
+        li{
+            display: inline-block;
+            margin: 5px;
+
+            a{
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
