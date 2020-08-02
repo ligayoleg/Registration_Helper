@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PanelModule } from 'primeng/panel';
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
-import {StepsModule} from 'primeng/steps';
-import {DropdownModule} from 'primeng/dropdown';
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {SidebarModule} from 'primeng/sidebar';
-import {CalendarModule as primengCalendar} from 'primeng/calendar';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { StepsModule } from 'primeng/steps';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { SidebarModule } from 'primeng/sidebar';
+import { CalendarModule as primengCalendar } from 'primeng/calendar';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
+import { SliderModule } from 'primeng/slider';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { DialogModule } from 'primeng/dialog';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,20 +29,21 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { CalendarViewComponent } from './calendarView/calendar-view.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CarService } from './carservice';
 @NgModule({
   declarations: [
     AppComponent,
     ClassesViewComponent,
     HomeViewComponent,
     NavigationComponent,
-    CalendarViewComponent
+    CalendarViewComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
 
     primengCalendar,
     DropdownModule,
@@ -43,10 +53,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InputTextModule,
     StepsModule,
     SidebarModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     NgbModule,
+    TableModule,
+    ToastModule,
+    SliderModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    DialogModule,
+    ProgressBarModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CarService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
