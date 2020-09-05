@@ -75,9 +75,7 @@
     [paginator]="true"
     [rows]="15"
   >
-    <ng-template pTemplate="caption">
-      List of Cars
-    </ng-template>
+    <ng-template pTemplate="caption"> List of Classes </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -94,7 +92,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="summary" let-rowData>
-      <div style="text-align: left;">
+      <div style="text-align: left">
         <button
           type="button"
           pButton
@@ -115,7 +113,7 @@
     [modal]="true"
     [style]="{ width: '300px' }"
   >
-    <div class="p-grid ui-fluid" *ngIf="car">
+    <div class="p-grid ui-fluid" *ngIf="class">
       <div class="p-col-4">
         <label for="vin">Vin</label>
       </div>

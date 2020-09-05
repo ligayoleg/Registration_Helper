@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Car } from '../car';
+import { Class } from '../models/class.model';
 import { CarService } from '../carservice';
+import { ClassesViewService } from './classes-view.service';
 import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'app-classes-view',
@@ -15,14 +17,22 @@ export class ClassesViewComponent implements OnInit {
   selectedCar: Car;
 
   newCar: boolean;
-
   cars: Car[];
-
-  cols: any[];
+  carsCols: any[];
 
   days: any[];
 
-  constructor(private carService: CarService) {}
+  //Classes
+  cols: any[];
+  class: Class = {};
+  selectedClass: Class;
+  newClass: boolean;
+  classes: Class[];
+
+  constructor(
+    private carService: CarService,
+    private classesService: ClassesViewService
+  ) {}
 
   ngOnInit(): void {
     this.carService.getCarsSmall().then((cars) => (this.cars = cars));
@@ -38,6 +48,18 @@ export class ClassesViewComponent implements OnInit {
     ];
 
     this.cols = [
+      { field: 'code', header: 'Code' },
+      { field: 'name', header: 'Name' },
+      { field: 'oncePerWeek', header: 'Once Per Week' },
+      { field: 'dayOne', header: 'Day One' },
+      { field: 'dayOneTimeStart', header: 'Day One Start Time' },
+      { field: 'dayOneTimeFinish', header: 'Day One Finish Time' },
+      { field: 'dayTwo', header: 'Day Two' },
+      { field: 'dayTwoTimeStart', header: 'Day Two Start Time' },
+      { field: 'dayTwoTimeFinish', header: 'Day Two Finish Time' },
+    ];
+
+    this.carsCols = [
       { field: 'vin', header: 'Vin' },
       { field: 'year', header: 'Year' },
       { field: 'brand', header: 'Brand' },
@@ -52,19 +74,26 @@ export class ClassesViewComponent implements OnInit {
   }
 
   save() {
-    let cars = [...this.cars];
-    if (this.newCar) cars.push(this.car);
-    else cars[this.cars.indexOf(this.selectedCar)] = this.car;
+    // let cars = [...this.cars];
+    // if (this.newCar) cars.push(this.car);
+    // else cars[this.cars.indexOf(this.selectedCar)] = this.car;
 
-    this.cars = cars;
+    // this.cars = cars;
+    // this.car = null;
+    // this.displayDialog = false;
+    let classes = [...this.classes];
+    if (this.newClass) classes.push(this.class);
+    else classes[this.classes.indexOf(this.selectedClass)] = this.class;
+
+    this.classes = classes;
     this.car = null;
     this.displayDialog = false;
   }
 
   delete() {
-    let index = this.cars.indexOf(this.selectedCar);
-    this.cars = this.cars.filter((val, i) => i != index);
-    this.car = null;
+    let index = this.classes.indexOf(this.selectedClass);
+    this.classes = this.classes.filter((val, i) => i != index);
+    this.class = null;
     this.displayDialog = false;
   }
 

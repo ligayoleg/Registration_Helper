@@ -1,0 +1,103 @@
+
+AAA - AAA - Academic Access
+ABRAD - ABRAD - Study Abroad 
+ACC - ACC - Accountancy
+ADVST - ADVST - Advanced Standing Prog
+AFR - AFR - Afro-American Studies 
+ANTH - ANTH - Anthropology 
+ARB - ARB - Arabic 
+ARCH - ARCH - Architectural Tech 
+ARTH - ARTH - Art History 
+ASL - ASL - American Sign Language 
+BEOC - BEOC - Stdnt Referred to BEOC
+BIO - BIO - Biological Sciences 
+BLOCK - Block Program - Learning Comty
+BSKLC - BSKLC - SEEK Biology Seminar 
+BUF - BUF - Business Merchandising 
+BUS - BUS - Business 
+CDMG - CDMG - Comm Design Mgmt
+CERT - CERT - Certified Full Time
+CET - CET - Comp Engineering Tech
+CF - CF - Certified Full Time 
+CHEM - CHEM - Chemistry 
+CHN - CHN - Chinese
+CMCE - CMCE - Construction Tech
+COLNW - COLNW - COLNW 
+COM - COM - Communication
+COMD - COMD - Communication Design
+COMPX - COMPX - Computer Literacy Exam
+CSKLC - CSKLC - SEEK Learn Comm Coach 
+CST - CST - Computer Information Sys 
+CUNBA - CUNBA - CUNY BA 
+DEN - DEN - Dental Hygiene
+DPT - DPT - Data Processing
+ECON - ECON - Economics
+EDU - EDU - Teacher Education
+EET - EET - Electrical Eng Tech
+ELEC - ELEC - Elective Credit
+EMT - EMT - Electro-Mech Eng Tech
+ENG - ENG - English
+ENGR - ENGR - Intro to Eng & Computer
+ENT - ENT - Entertainment Technology
+ENVC - ENVC - Environ Control Tech
+ESCI - ESCI - Environmental Science
+ESOL - ESOL - Col Eng as a Second
+ETN - ETN - Elect Eng Tech-Non-Major
+ETX - ETX - Elect Eng Tech-Next Step
+FMGT - FMGT - Facilities Management
+FREN - FREN - French
+GEOG - GEOG - Geography
+GOV - GOV - Government
+GRA - GRA - Graphic Arts & Adv Tech 
+HEA - HEA - Health Education
+HIS - HIS - History
+HMGT - HMGT - Hospitality Management
+HSA - HSA - Health services Admin
+HSCI - HSCI - Health Science
+HUS - HUS - Human Services
+IMT - IMT - Interactive Media Tech
+IND - IND - Industrial Design Tech
+IS - IS - Independent Study
+LATS - LATS - Latin American Studies
+LAW - LAW - Law & Paralegal Studies
+LIB - LIB - LIB
+LING - LING - Linguistics
+LNG - LNG - Lang, Culture, Society
+LOA - LOA - Leave of Absence
+MAT - MAT - Mathematics
+MECH - MECH - Mechanical Eng Tech
+MED - MED - Biomedical Informatics
+MEDU - MEDU - Mathematics Education
+MKT - MKT - Marketing
+MM - MM - Maint of Matric
+MSKLC - MSKLC - SEEK Math Seminar
+MST - MST - Micro Computer Sys Tech
+MTEC - MTEC - Emerging Media Tech
+MUS - MUS - Music
+NUR - NUR - Nursing
+ONFIL - ONFIL - On File Used for CLIP
+PERF - PERF - Performing Arts
+PERM - PERM - Permit Course
+PERMX - PERMX - Permit Course
+PHIL - PHIL - Philosophy
+PHYS - PHYS - Physics & General Sci
+PO - PO - Permit Out
+PRS - PRS - Latin American Studies
+PSY - PSY - Psychology
+RAD - RAD - Radiologic Med Imag Tech
+RESD - RESD - Dental Laboratory Tech
+SBS - SBS - Social & Behavioral Sci
+SCI - SCI - Intro to Math & Science
+SEEKX - SEEKX - SEEK Edu Experience
+SEKAC - SEKAC - SEEK Academy
+SOC - SOC - Sociology
+SPA - SPA - Spanish
+STABD - STABD - Study Abroad
+STS - STS - Sci, Tech & Society
+SUPT - SUPT - Build Super Tech
+TCET - TCET - Telecommunications
+THE - THE - Theatre
+TSKLC - TSKLC - SEEK Learn Comm Tut
+TUTOR - TUTOR - USIP Tutorial
+VCT - VCT - Ophthalmic Dispensing
+WKSHP - WKSHP - Educational Workshop

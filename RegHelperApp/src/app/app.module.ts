@@ -30,6 +30,8 @@ import { CalendarViewComponent } from './calendarView/calendar-view.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CarService } from './carservice';
+import { ClassesViewService } from './classesView/classes-view.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,7 @@ import { CarService } from './carservice';
     DialogModule,
     ProgressBarModule,
   ],
-  providers: [CarService],
+  providers: [CarService, ClassesViewService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
