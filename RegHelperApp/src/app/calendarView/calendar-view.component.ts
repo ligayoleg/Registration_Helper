@@ -33,10 +33,16 @@ import {
   styleUrls: ['./calendar-view.component.scss']
 })
 export class CalendarViewComponent implements OnInit {
+
+  dateOne: Date = new Date();
+
+  
+  
   events: CalendarEvent[] = [
     {
-      title: 'Draggable event',
-      start: new Date(),
+      // First Event
+      title: 'Class # 1',
+      start: this.dateOne,
       draggable: true,
       end: addDays(new Date(), 1), // an end date is always required for resizable events to work
       resizable: {
@@ -45,6 +51,7 @@ export class CalendarViewComponent implements OnInit {
       },
     },
     {
+      // Another event
       title: 'A non draggable event',
       start: new Date(),
     },
@@ -61,7 +68,11 @@ export class CalendarViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  
+    this.dateOne.setFullYear(2020);
+    this.dateOne.setMonth(7);
+    this.dateOne.setDate(3);
+
+    console.log(this.dateOne);
   }
 
 }

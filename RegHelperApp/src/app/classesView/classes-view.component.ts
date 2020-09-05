@@ -49,6 +49,7 @@ export class ClassesViewComponent implements OnInit {
 
     this.cols = [
       { field: 'code', header: 'Code' },
+<<<<<<< HEAD
       { field: 'name', header: 'Name' },
       { field: 'oncePerWeek', header: 'Once Per Week' },
       { field: 'dayOne', header: 'Day One' },
@@ -64,6 +65,18 @@ export class ClassesViewComponent implements OnInit {
       { field: 'year', header: 'Year' },
       { field: 'brand', header: 'Brand' },
       { field: 'color', header: 'Color' },
+=======
+      { field: 'number', header: 'Number' },
+      { field: 'name', header: 'Name' },
+      { field: 'section', header: 'Section' },
+      { field: 'oncePerWeek', header: 'Once Per Week' },
+      { field: 'dayOne', header: 'Day One' },
+      { field: 'timeStartOne', header: 'Time Start' },
+      { field: 'timeFinishOne', header: 'Time Finish' },
+      { field: 'dayTwo', header: 'Day Two' },
+      { field: 'timeStartTwo', header: 'Time Start' },
+      { field: 'timeFinishTwo', header: 'Time Finish' },
+>>>>>>> 5583bda46bdbfc4856b00eaf6856a5589cfd588c
     ];
   }
 
