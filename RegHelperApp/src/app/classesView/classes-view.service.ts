@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Class } from '../models/class.model';
+import { Subject } from '../models/class.model';
 
 @Injectable()
 export class ClassesViewService {
@@ -427,7 +427,7 @@ export class ClassesViewService {
         class: 26578,
         section: 'OL-25',
         code: 'CST1201',
-        name: 'Programming FUndatmentals',
+        name: 'Programming Fundatmentals',
         oncePerWeek: true,
         dayOne: 'Saturday',
         dayOneTimeStart: '12:30pm',
@@ -437,6 +437,17 @@ export class ClassesViewService {
         dayTwoTimeFinish: null,
       },
     ];
+
+    // getCarsSmall() {
+    //   return this.http
+    //     .get<any>('assets/cars-small.json')
+    //     .toPromise()
+    //     .then((res) => <Car[]>res.data)
+    //     .then((data) => {
+    //       return data;
+    //     });
+    // }
+
     return this.classes;
   }
 }

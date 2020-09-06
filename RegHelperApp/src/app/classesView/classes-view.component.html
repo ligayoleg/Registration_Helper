@@ -1,22 +1,14 @@
 <div id="classesView">
-
-
   <p-table
     [columns]="cols"
-    [value]="cars"
+    [value]="classes"
     selectionMode="single"
-    [(selection)]="selectedCar"
+    [(selection)]="selectedClass"
     (onRowSelect)="onRowSelect($event)"
     [paginator]="true"
     [rows]="15"
   >
-<<<<<<< HEAD
     <ng-template pTemplate="caption"> List of Classes </ng-template>
-=======
-    <ng-template pTemplate="caption">
-      Classes
-    </ng-template>
->>>>>>> 5583bda46bdbfc4856b00eaf6856a5589cfd588c
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -46,7 +38,7 @@
   </p-table>
 
   <p-dialog
-    header="Car Details"
+    header="Class Details"
     [(visible)]="displayDialog"
     [focusOnShow]="false"
     [responsive]="true"
@@ -56,28 +48,38 @@
   >
     <div class="p-grid ui-fluid" *ngIf="class">
       <div class="p-col-4">
-        <label for="vin">Vin</label>
+        <label for="vin">Code</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="vin" [(ngModel)]="car.vin" autofocus />
+        <input pInputText id="code" [(ngModel)]="class.code" autofocus />
       </div>
       <div class="p-col-4">
-        <label for="year">Year</label>
+        <label for="year">Name</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="year" [(ngModel)]="car.year" />
+        <input pInputText id="name" [(ngModel)]="class.name" />
       </div>
       <div class="p-col-4">
-        <label for="brand">Brand</label>
+        <label for="brand">Once Per Week</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="brand" [(ngModel)]="car.brand" />
+        <input pInputText id="oncePerWeek" [(ngModel)]="class.oncePerWeek" />
       </div>
       <div class="p-col-4">
-        <label for="color">Color</label>
+        <label for="color">Day One</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="color" [(ngModel)]="car.color" />
+        <input pInputText id="dayOne" [(ngModel)]="class.dayOne" />
+      </div>
+      <div class="p-col-4">
+        <label for="color">Day One Start Time</label>
+      </div>
+      <div class="p-col-8">
+        <input
+          pInputText
+          id="dayOneStartTime"
+          [(ngModel)]="class.dayOneTimeStart"
+        />
       </div>
     </div>
     <p-footer>
@@ -100,4 +102,3 @@
     </p-footer>
   </p-dialog>
 </div>
-
