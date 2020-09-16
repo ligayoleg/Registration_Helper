@@ -418,7 +418,7 @@ export class ClassesViewService {
     },
   ]; //end of subject
 
-  classes: Class[];
+  classes: Subject[];
   constructor() {}
 
   returnClasses() {

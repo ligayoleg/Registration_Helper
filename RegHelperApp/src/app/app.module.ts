@@ -20,6 +20,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressBarModule } from 'primeng/progressbar';
+import {MenubarModule} from 'primeng/menubar';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,6 +69,8 @@ import { ClassesViewService } from './classesView/classes-view.service';
     ContextMenuModule,
     DialogModule,
     ProgressBarModule,
+    MenubarModule,
+    
   ],
   providers: [CarService, ClassesViewService],
   bootstrap: [AppComponent],

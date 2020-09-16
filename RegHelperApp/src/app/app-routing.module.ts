@@ -6,7 +6,7 @@ import {CalendarViewComponent} from './calendarView/calendar-view.component';
 
 const routes: Routes = [
   {path: 'homeView', component: HomeViewComponent},
-  {path: 'classesView', component: ClassesViewComponent},
+  {path: 'eventsView', component: ClassesViewComponent},
   {path: 'calendarView', component: CalendarViewComponent},
   {path: '', redirectTo: 'homeView', pathMatch: 'full'},
 ];

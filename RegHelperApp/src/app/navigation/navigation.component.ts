@@ -11,12 +11,13 @@ export class NavigationComponent implements OnInit {
 
   constructor() { }
 
-  views: MenuItem[];
+  links: MenuItem[];
 
   ngOnInit() {
-      this.views = [
+      this.links = [
           {label: 'Home', routerLink: ['/homeView']},
-          {label: 'Classes', routerLink: ['/classView']},
+          {label: 'Events', routerLink: ['/eventsView']},
+          {label: 'Calendar', routerLink: ['/calendarView']},
       ];
   }
 
