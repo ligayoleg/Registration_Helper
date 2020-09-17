@@ -8,33 +8,6 @@
     [paginator]="true"
     [rows]="15"
   >
-    <ng-template pTemplate="caption"> List of Classes </ng-template>
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-          {{ col.header }}
-          <p-sortIcon [field]="col.field"></p-sortIcon>
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr [pSelectableRow]="rowData">
-        <td *ngFor="let col of columns">
-          {{ rowData[col.field] }}
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="summary" let-rowData>
-      <div style="text-align: left">
-        <button
-          type="button"
-          pButton
-          icon="pi pi-plus"
-          (click)="showDialogToAdd()"
-          label="Add"
-        ></button>
-      </div>
-    </ng-template>
   </p-table>
 
   <p-dialog
@@ -90,6 +63,7 @@
           icon="pi pi-times"
           (click)="delete()"
           label="Delete"
+          class="p-button-raised p-button-danger"
         ></button>
         <button
           type="button"
@@ -97,6 +71,7 @@
           icon="pi pi-check"
           (click)="save()"
           label="Save"
+          class="p-button-raised p-button-success"
         ></button>
       </div>
     </p-footer>

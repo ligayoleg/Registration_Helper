@@ -1,29 +1,26 @@
-#classesView{
+#classesView {
+  #classes {
+    .buttons {
+      float: right;
 
-
-    #classes{
-
-
-        .buttons{
-            float: right;
-            
-            button{
-                margin: 5px;
-            }
-        }
-        .class{
-            display: grid;
-            grid-template-columns: 1fr;
-            margin-top: 15px;
-
-            .buttons{
-                
-                button{
-                    margin: 5px;
-                }
-            }
-        }
-
+      button {
+        margin: 5px;
+      }
     }
+    .class {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 15px;
 
+      .buttons {
+        button {
+          margin: 5px;
+        }
+      }
+    }
+  }
+}
+
+.p-dialog .p-dialog-header {
+  background: #333;
 }
