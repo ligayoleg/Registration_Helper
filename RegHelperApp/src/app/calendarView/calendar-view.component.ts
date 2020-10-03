@@ -1,9 +1,9 @@
-import { 
-  Component, 
+import {
+  Component,
   OnInit,
   ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef, 
+  TemplateRef,
 } from '@angular/core';
 
 import {
@@ -26,18 +26,16 @@ import {
   CalendarView,
 } from 'angular-calendar';
 
-
 @Component({
   selector: 'app-calendar-view',
   templateUrl: './calendar-view.component.html',
-  styleUrls: ['./calendar-view.component.scss']
+  styleUrls: ['./calendar-view.component.scss'],
 })
 export class CalendarViewComponent implements OnInit {
-
   dateOne: Date = new Date();
 
-  
-  
+  val: number;
+
   events: CalendarEvent[] = [
     {
       // First Event
@@ -55,7 +53,7 @@ export class CalendarViewComponent implements OnInit {
       title: 'A non draggable event',
       start: new Date(),
     },
-  ];;
+  ];
 
   view: CalendarView = CalendarView.Week;
 
@@ -63,9 +61,8 @@ export class CalendarViewComponent implements OnInit {
 
   viewDate: Date = new Date();
 
-
   options: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.dateOne.setFullYear(2020);
@@ -74,5 +71,4 @@ export class CalendarViewComponent implements OnInit {
 
     console.log(this.dateOne);
   }
-
 }

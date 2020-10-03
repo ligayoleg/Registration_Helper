@@ -1,21 +1,23 @@
-<div class="row text-center" id="calendar">
-  <div class="col-md-4">
-    <!-- <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3> -->
+<div id="calendar">
+  <div id="calendarSettings">
+    <p-panel header="Settings">
+      <div class="container">Events</div>
+      <div class="container">
+        <div>
+          <label>Work</label>
+          <p-slider [(ngModel)]="val"></p-slider>
+        </div>
+      </div>
+    </p-panel>
   </div>
-  <div class="col-md-4">
-    <div class="btn-group">
-      <div [class.active]="view === CalendarView.Week"></div>
-    </div>
+  <!-- Calendar View -->
+  <div [ngSwitch]="view" id="calendarView">
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [dayStartHour]="0"
+      [events]="events"
+    >
+    </mwl-calendar-week-view>
   </div>
-</div>
-
-<br />
-<div [ngSwitch]="view">
-  <mwl-calendar-week-view
-    *ngSwitchCase="CalendarView.Week"
-    [viewDate]="viewDate"
-    [dayStartHour]="0"
-    [events]="events"
-  >
-  </mwl-calendar-week-view>
 </div>

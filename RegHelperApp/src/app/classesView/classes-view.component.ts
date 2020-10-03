@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Car } from '../car';
+import { Event } from '../models/event.model';
 import { Subject } from '../models/class.model';
 import { CarService } from '../carservice';
 import { ClassesViewService } from './classes-view.service';
@@ -19,6 +20,8 @@ export class ClassesViewComponent implements OnInit {
   carsCols: any[];
 
   days: any[];
+
+  events: any[];
 
   //Classes
   cols: any[];
@@ -47,23 +50,12 @@ export class ClassesViewComponent implements OnInit {
     ];
 
     this.cols = [
-      { field: 'code', header: 'Code' },
       { field: 'name', header: 'Name' },
-      { field: 'oncePerWeek', header: 'Once Per Week' },
-      { field: 'dayOne', header: 'Day One' },
-      { field: 'dayOneTimeStart', header: 'Day One Start Time' },
-      { field: 'dayOneTimeFinish', header: 'Day One Finish Time' },
-      { field: 'dayTwo', header: 'Day Two' },
-      { field: 'dayTwoTimeStart', header: 'Day Two Start Time' },
-      { field: 'dayTwoTimeFinish', header: 'Day Two Finish Time' },
+      { field: 'type', header: 'Type' },
+      { field: 'days', header: 'Days' },
     ];
 
-    this.carsCols = [
-      { field: 'vin', header: 'Vin' },
-      { field: 'year', header: 'Year' },
-      { field: 'brand', header: 'Brand' },
-      { field: 'color', header: 'Color' },
-    ];
+    this.events = [{ name: 'Work', type: 'type', days: 'days' }];
   }
 
   showDialogToAdd() {
