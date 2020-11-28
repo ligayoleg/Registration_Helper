@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,6 +21,9 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { MenubarModule } from 'primeng/menubar';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +35,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CarService } from './carservice';
 import { ClassesViewService } from './classesView/classes-view.service';
+import { EventsService } from './events.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,7 @@ import { ClassesViewService } from './classesView/classes-view.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     primengCalendar,
     DropdownModule,
@@ -69,8 +74,10 @@ import { ClassesViewService } from './classesView/classes-view.service';
     DialogModule,
     ProgressBarModule,
     MenubarModule,
+    SelectButtonModule,
+    ProgressSpinnerModule,
   ],
-  providers: [CarService, ClassesViewService],
+  providers: [CarService, ClassesViewService, EventsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

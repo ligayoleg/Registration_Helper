@@ -1,13 +1,35 @@
 <div id="calendar">
   <div id="calendarSettings">
     <p-panel header="Settings">
-      <div class="container">Events</div>
-      <div class="container">
+      <p-header>
+        <button pButton label="Add/Edit" routerLink="/eventsView"></button>
+      </p-header>
+      <p-panel header="Events" toggleable="true">
+        <!-- Work -->
         <div>
           <label>Work</label>
-          <p-slider [(ngModel)]="val"></p-slider>
+          <p-slider [(ngModel)]="work"></p-slider>
+          {{ work }}
         </div>
-      </div>
+
+        <!-- Gym -->
+        <div>
+          <label>Gym</label>
+          <p-slider [(ngModel)]="play"></p-slider>
+          {{ play }}
+        </div>
+      </p-panel>
+
+      <br />
+
+      <p-panel header="Calendars" toggleable="true">
+        <div class="calendar">all</div>
+        {{allView}}
+        <div class="calendar">work</div>
+        {{workView}}
+        <div class="calendar">play</div>
+        {{playView}}
+      </p-panel>
     </p-panel>
   </div>
   <!-- Calendar View -->
@@ -17,6 +39,7 @@
       [viewDate]="viewDate"
       [dayStartHour]="0"
       [events]="events"
+      (eventTimesChanged)="eventDropped($event)"
     >
     </mwl-calendar-week-view>
   </div>

@@ -1,13 +1,24 @@
 <div id="classesView">
+
   <p-table
     [columns]="cols"
     selectionMode="single"
-    [(selection)]="selectedClass"
+    [(selection)]="selectedEvent"
     (onRowSelect)="onRowSelect($event)"
     [paginator]="true"
     [rows]="15"
     [value]="events"
   >
+    <ng-template pTemplate="caption">
+      <button
+        pButton
+        pRipple
+        label="New"
+        icon="pi pi-plus"
+        class="p-button-success p-mr-2"
+        (click)="showDialogToAdd()"
+      ></button>
+    </ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th *ngFor="let col of cols">
@@ -16,17 +27,20 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-car>
+    <ng-template pTemplate="body" let-events>
       <tr>
-        <ng-template
-          *ngIf="cols[0].header === 'Days'; then showDays; else dontShowDays"
-        ></ng-template>
-        <ng-template #showDays> </ng-template>
-        <ng-template #dontShowDays>
-          <td *ngFor="let col of cols">
-            {{ car[col.field] }}
-          </td>
-        </ng-template>
+        <td>
+          {{events.title}}
+        </td>
+        <td>
+          {{events.meta}}
+        </td>
+        
+        <td colspan="2">
+          <div >
+            <p-selectButton [options]="days"  multiple="multiple"></p-selectButton>
+          </div>
+        </td>
       </tr>
     </ng-template>
   </p-table>
@@ -40,40 +54,25 @@
     [modal]="true"
     [style]="{ width: '300px' }"
   >
-    <div class="p-grid ui-fluid" *ngIf="class">
+    <div class="p-grid ui-fluid" *ngIf="event">
       <div class="p-col-4">
-        <label for="vin">Code</label>
+        <label for="vin">Name</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="code" [(ngModel)]="class.code" autofocus />
+        <input pInputText id="title" [(ngModel)]="event.title" autofocus />
       </div>
       <div class="p-col-4">
-        <label for="year">Name</label>
+        <label for="year">Type</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="name" [(ngModel)]="class.name" />
+        <input pInputText id="meta" [(ngModel)]="event.meta" />
       </div>
       <div class="p-col-4">
-        <label for="brand">Once Per Week</label>
+        <label for="year">Days</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="oncePerWeek" [(ngModel)]="class.oncePerWeek" />
-      </div>
-      <div class="p-col-4">
-        <label for="color">Day One</label>
-      </div>
-      <div class="p-col-8">
-        <input pInputText id="dayOne" [(ngModel)]="class.dayOne" />
-      </div>
-      <div class="p-col-4">
-        <label for="color">Day One Start Time</label>
-      </div>
-      <div class="p-col-8">
-        <input
-          pInputText
-          id="dayOneStartTime"
-          [(ngModel)]="class.dayOneTimeStart"
-        />
+        
+        <input pInputText id="meta" [(ngModel)]="event.meta" />
       </div>
     </div>
     <p-footer>

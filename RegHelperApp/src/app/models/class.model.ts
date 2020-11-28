@@ -11,3 +11,20 @@ export interface Subject {
   dayTwoTimeStart?: string;
   dayTwoTimeFinish?: string;
 }
+
+export interface Event {
+  id?: string;
+  name?: string;
+  type?: string;
+  days?: Day[];
+}
+
+export interface Day {
+  sunday: boolean;
+  monday: boolean;
+  tuesday: boolean;
+  wednesday: boolean;
+  thursday: boolean;
+  friday: boolean;
+  saturday: boolean;
+}

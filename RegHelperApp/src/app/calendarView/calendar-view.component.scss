@@ -9,6 +9,16 @@
     height: 100%;
     width: 100%;
   }
-  #calendarView {
+
+  .calendar {
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 14px;
+    margin-bottom: 3px;
+    cursor: pointer;
+  }
+
+  .panel .p-panel-header {
+    background: #333;
   }
 }
