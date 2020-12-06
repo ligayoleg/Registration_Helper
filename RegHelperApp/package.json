@@ -26,6 +26,7 @@
     "angular-calendar": "^0.28.16",
     "bootstrap": "^4.4.0",
     "date-fns": "^2.14.0",
+    "moment-timezone": "^0.5.32",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.0",
     "rxjs": "~6.5.4",

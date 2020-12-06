@@ -7,14 +7,14 @@
       <p-panel header="Events" toggleable="true">
         <!-- Work -->
         <div>
-          <label>Work</label>
-          <p-slider [(ngModel)]="work"></p-slider>
+          <label>Days</label>
+          <p-slider [(ngModel)]="work" (onChange)="updateEventsWeekly($event)"></p-slider>
           {{ work }}
         </div>
 
         <!-- Gym -->
         <div>
-          <label>Gym</label>
+          <label>Hours</label>
           <p-slider [(ngModel)]="play"></p-slider>
           {{ play }}
         </div>
@@ -27,7 +27,7 @@
         {{allView}}
         <div class="calendar">work</div>
         {{workView}}
-        <div class="calendar">play</div>
+        <div class="calendar">play</div> 
         {{playView}}
       </p-panel>
     </p-panel>
@@ -38,8 +38,8 @@
       *ngSwitchCase="CalendarView.Week"
       [viewDate]="viewDate"
       [dayStartHour]="0"
-      [events]="events"
-      (eventTimesChanged)="eventDropped($event)"
+      [events]="calendarEvents"
+      (beforeViewRender)="updateCalendarEvents($event)"
     >
     </mwl-calendar-week-view>
   </div>

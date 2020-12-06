@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Car } from '../car';
-
-import { Subject, Event, Day } from '../models/class.model';
-import { CarService } from '../carservice';
+import {Event} from '../models/event.model';
 import { ClassesViewService } from './classes-view.service';
 import { MenuItem } from 'primeng/api';
 
@@ -17,18 +14,18 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
+
 @Component({
   selector: 'app-classes-view',
   templateUrl: './classes-view.component.html',
   styleUrls: ['./classes-view.component.scss'],
 })
-export class ClassesViewComponent implements OnInit {
-  displayDialog: boolean;
 
-  car: Car = {};
-  selectedCar: Car;
-  newCar: boolean;
-  cars: Car[];
+export class ClassesViewComponent implements OnInit {
+
+  displayDialog: boolean;
+  selectedOption: string;
+  
   carsCols: any[];
 
   days: SelectItem[];
@@ -39,31 +36,15 @@ export class ClassesViewComponent implements OnInit {
 
 
   // events
-  event: CalendarEvent;
-  selectedEvent: CalendarEvent;
-  events: CalendarEvent[] = [
-    // {
-    //   // First Event
-    //   title: 'Class # 1',
-    //   start: this.dateOne,
-    //   draggable: true,
-    //   end: addDays(new Date(), 1), // an end date is always required for resizable events to work
-    //   resizable: {
-    //     beforeStart: true, // this allows you to configure the sides the event is resizable from
-    //     afterEnd: true,
-    //   },
-    // },
-    // {
-    //   // Another event
-    //   title: 'A non draggable event',
-    //   start: new Date(),
-    // },
-  ];
+  event: Event;
+  selectedEvent: Event;
+  events: Event[];
+  eventDates: CalendarEvent[];
   newEvent: boolean;
 
   constructor(
     private _eventsService: EventsService,
-    private classesService: ClassesViewService
+    
   ) {
 
     // get events from eventsService
@@ -71,19 +52,26 @@ export class ClassesViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.carService.getCarsSmall().then((cars) => (this.cars = cars));
-    //this.classes = this.classesService.returnClasses();
+    this.events.forEach(event => {
+      this.eventDates = event.days;
+      
+      this.eventDates.forEach(ed => {
+        ed.meta = ed.start.getDay();
+      })
+    })
+    console.log(this.eventDates);
+    
 
     this.days = [
-      { label: 'S', value: 'sun' },
-      { label: 'M', value: 'mon' },
-      { label: 'T', value: 'tue' },
-      { label: 'W', value: 'wed' },
-      { label: 'T', value: 'thu' },
-      { label: 'F', value: 'fri' },
-      { label: 'S', value: 'sat' },
-    ];
-
+      { label: 'S', value: 0, disabled: true  },
+      { label: 'M', value: 1, disabled: true  },
+      { label: 'T', value: 2, disabled: true  },
+      { label: 'W', value: 3, disabled: true  },
+      { label: 'T', value: 4, disabled: true  },
+      { label: 'F', value: 5, disabled: true  },
+      { label: 'S', value: 6, disabled: true  },
+    ]; 
+ 
     this.cols = [
       { field: 'name', header: 'Name' },
       { field: 'type', header: 'Type' },
@@ -95,26 +83,19 @@ export class ClassesViewComponent implements OnInit {
 
   showDialogToAdd() {
     this.newEvent = true;
-    this.event = { start: new Date(), title: '' };
+    this.event = { title: '' };
     this.displayDialog = true;
   }
 
   save() {
-    // let cars = [...this.cars];
-    // if (this.newCar) cars.push(this.car);
-    // else cars[this.cars.indexOf(this.selectedCar)] = this.car;
-
-    // this.cars = cars;
-    // this.car = null;
-    // this.displayDialog = false;
     let events = [...this.events];
     if (this.newEvent) events.push(this.event);
     else events[this.events.indexOf(this.selectedEvent)] = this.event;
 
     this.events = events;
 
-    this._eventsService.updEvents(this.events);
-    this.car = null;
+    // this._eventsService.updEvents(this.events);
+    this.event = null;
     this.displayDialog = false;
   }
 
@@ -125,13 +106,13 @@ export class ClassesViewComponent implements OnInit {
     this.displayDialog = false;
   }
 
-  onRowSelect(event) {
-    this.newEvent = false;
-    this.event = this.cloneClass(event.data);
-    this.displayDialog = true;
-  }
+  // onRowSelect(event) {
+  //   this.newEvent = false;
+  //   this.event = this.cloneClass(event.data);
+  //   this.displayDialog = true;
+  // }
 
-  cloneClass(c: CalendarEvent): CalendarEvent {
+  cloneClass(c: Event): Event {
     var event = { title: '', start: new Date() };
     for (let prop in c) {
       event[prop] = c[prop];
