@@ -2,34 +2,37 @@
   <div id="calendarSettings">
     <p-panel header="Settings">
       <p-header>
-        <button pButton label="Add/Edit" routerLink="/eventsView"></button>
+        <button pButton label="Add" routerLink="/eventsView"></button>
+       
       </p-header>
       <p-panel header="Events" toggleable="true">
+        <button pButton label="Random" (click)="randomizeEvents()"></button>  
         <!-- Work -->
         <div>
           <label>Days</label>
-          <p-slider [(ngModel)]="work" (onChange)="updateEventsWeekly($event)"></p-slider>
-          {{ work }}
+          <p-slider [(ngModel)]="daysNum" (onChange)="updateEventsWeekly($event)"></p-slider>
+          {{ daysNum }}
         </div>
 
         <!-- Gym -->
         <div>
+          
           <label>Hours</label>
-          <p-slider [(ngModel)]="play"></p-slider>
-          {{ play }}
+          <p-slider [(ngModel)]="hoursNum" ></p-slider>
+          {{ hoursNum }}
         </div>
       </p-panel>
 
       <br />
 
-      <p-panel header="Calendars" toggleable="true">
+      <!-- <p-panel header="Calendars" toggleable="true">
         <div class="calendar">all</div>
         {{allView}}
         <div class="calendar">work</div>
         {{workView}}
         <div class="calendar">play</div> 
         {{playView}}
-      </p-panel>
+      </p-panel> -->
     </p-panel>
   </div>
   <!-- Calendar View -->
@@ -37,9 +40,11 @@
     <mwl-calendar-week-view
       *ngSwitchCase="CalendarView.Week"
       [viewDate]="viewDate"
+      [refresh]='refresh'
       [dayStartHour]="0"
       [events]="calendarEvents"
       (beforeViewRender)="updateCalendarEvents($event)"
+      (eventTimesChanged)="eventTimesChanged($event, hoursNum)"
     >
     </mwl-calendar-week-view>
   </div>

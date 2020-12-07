@@ -29,6 +29,7 @@
     "moment-timezone": "^0.5.32",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.0",
+    "rrule": "^2.6.6",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

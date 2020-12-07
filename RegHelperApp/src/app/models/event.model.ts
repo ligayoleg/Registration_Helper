@@ -16,6 +16,21 @@ export interface Event  {
 }
 
 
+export interface RecurringEvent {
+  id?: number,
+  title: string;
+  color?: any;
+  rrule?: {
+    freq: any;
+    bymonth?: number;
+    bymonthday?: number;
+    byweekday?: any;
+    byhour?: any,
+  };
+  type?:any;
+}
+
+
 
 // export interface EventTwo {
 //   id?: number;

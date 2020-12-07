@@ -4,10 +4,9 @@
     [columns]="cols"
     selectionMode="single"
     [(selection)]="selectedEvent"
-    
     [paginator]="true"
     [rows]="15"
-    [value]="events"
+    [value]="recurringEvents"
   >
     <ng-template pTemplate="caption">
       <button
@@ -37,9 +36,11 @@
         </td>
         
         <td colspan="2">
-          <div >
-            <p-selectButton [options]="days" [(ngModel)]="selectedOption"  multiple="multiple"></p-selectButton>
-            {{selectedOption}}
+          <div>
+            <p-selectButton [options]="days" [(ngModel)]="events.rrule.byweekday"  multiple="multiple">
+             
+            </p-selectButton>
+            
           </div>
         </td>
       </tr>
@@ -55,24 +56,24 @@
     [modal]="true"
     [style]="{ width: '500px' }"
   >
-    <div class="p-grid ui-fluid" *ngIf="event">
+    <div class="p-grid ui-fluid" *ngIf="recurringEvent">
       <div class="p-col-4">
         <label for="vin">Name</label>
       </div>
       <div class="p-col-12">
-        <input pInputText id="title" [(ngModel)]="event.title" autofocus />
+        <input pInputText id="title" [(ngModel)]="recurringEvent.title" autofocus />
       </div>
       <div class="p-col-4">
         <label for="year">Type</label>
       </div>
       <div class="p-col-12">
-        <input pInputText id="meta" [(ngModel)]="event.type" />
+        <input pInputText id="meta" [(ngModel)]="recurringEvent.type" />
       </div>
       <div class="p-col-4">
         <label for="year">Days</label>
       </div>
       <div class="p-col-12">
-        <p-selectButton [options]="eventDates"   multiple="multiple"></p-selectButton>
+        <p-selectButton [options]="days" [(ngModel)]="recurringEvent.rrule.byweekday"   multiple="multiple"></p-selectButton>
       </div>
     </div>
     <p-footer>

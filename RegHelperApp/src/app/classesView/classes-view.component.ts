@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import {Event} from '../models/event.model';
+import {Event, RecurringEvent} from '../models/event.model';
 import { ClassesViewService } from './classes-view.service';
 import { MenuItem } from 'primeng/api';
 
@@ -14,6 +14,7 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
+import RRule from 'rrule';
 
 @Component({
   selector: 'app-classes-view',
@@ -24,7 +25,7 @@ import {
 export class ClassesViewComponent implements OnInit {
 
   displayDialog: boolean;
-  selectedOption: string;
+  selectedOption: string[]= [];
   
   carsCols: any[];
 
@@ -40,15 +41,22 @@ export class ClassesViewComponent implements OnInit {
   selectedEvent: Event;
   events: Event[];
   eventDates: CalendarEvent[];
+
+  selectedRecurringEvent: RecurringEvent;
+  recurringEvent: RecurringEvent;
+  recurringEvents: RecurringEvent[];
   newEvent: boolean;
 
   constructor(
     private _eventsService: EventsService,
-    
+   
   ) {
 
     // get events from eventsService
     this.events = _eventsService.getEvents();
+    this.recurringEvents = _eventsService.recurringEvents;
+    console.log(this.recurringEvents);
+    console.log(this.events);
   }
 
   ngOnInit(): void {
@@ -59,18 +67,23 @@ export class ClassesViewComponent implements OnInit {
         ed.meta = ed.start.getDay();
       })
     })
-    console.log(this.eventDates);
-    
+ 
 
     this.days = [
-      { label: 'S', value: 0, disabled: true  },
-      { label: 'M', value: 1, disabled: true  },
-      { label: 'T', value: 2, disabled: true  },
-      { label: 'W', value: 3, disabled: true  },
-      { label: 'T', value: 4, disabled: true  },
-      { label: 'F', value: 5, disabled: true  },
-      { label: 'S', value: 6, disabled: true  },
+      { label: 'S', value: 'SU'  },
+      { label: 'M', value: 'MO'  },
+      { label: 'T', value: 'TU'  },
+      { label: 'W', value: 'WE'  },
+      { label: 'T', value: 'TH'  },
+      { label: 'F', value: 'FR'  },
+      { label: 'S', value: 'SA'  },
     ]; 
+    
+    this.recurringEvents.forEach(event=>{
+      event.rrule.byweekday.forEach(day =>{
+        this.selectedOption.push(day);
+      })
+    })
  
     this.cols = [
       { field: 'name', header: 'Name' },
@@ -83,18 +96,18 @@ export class ClassesViewComponent implements OnInit {
 
   showDialogToAdd() {
     this.newEvent = true;
-    this.event = { title: '' };
+    this.recurringEvent = { title: '', rrule: {freq: 2} };
     this.displayDialog = true;
   }
 
   save() {
-    let events = [...this.events];
-    if (this.newEvent) events.push(this.event);
-    else events[this.events.indexOf(this.selectedEvent)] = this.event;
+    let events = [...this.recurringEvents];
+    if (this.newEvent) events.push(this.recurringEvent);
+    else events[this.recurringEvents.indexOf(this.selectedRecurringEvent)] = this.recurringEvent;
 
-    this.events = events;
+    this.recurringEvents = events;
 
-    // this._eventsService.updEvents(this.events);
+    this._eventsService.recurringEvents = events;
     this.event = null;
     this.displayDialog = false;
   }

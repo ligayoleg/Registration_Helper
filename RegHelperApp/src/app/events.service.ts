@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {CalendarEvent} from 'angular-calendar';
 
-import {Event} from './models/event.model';
+import {Event, RecurringEvent} from './models/event.model';
 import { RRule } from 'rrule';
 
 @Injectable({
@@ -45,8 +45,6 @@ export class EventsService {
       // ],
     },
   ];
-
-
   eventsTwo: Event[] = [
     { 
       title: "Work",
@@ -80,7 +78,23 @@ export class EventsService {
 
       }
     }
+  ];
+
+  recurringEvents: RecurringEvent[] = [
+    
+    {
+      title: 'Recurs daily',
+      
+      rrule: {
+        freq: RRule.WEEKLY,
+        byweekday: [RRule.MO,RRule.TU,RRule.WE,RRule.TH,RRule.FR],
+        
+      },
+      type: "Type #1"
+    },
   ]
+
+
   constructor() { }
 
   getEvents(){
